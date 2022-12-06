@@ -24,11 +24,11 @@ ToDoList.prototype.findEvent = function(){
 ToDoList.prototype.deleteEvent = function(){
     if (this.events[id] === undefined ) {
 
-        return false
+        return false;
 
     }
     delete this.events[id]
-    return true
+    return true;
 
 }
 
@@ -38,4 +38,16 @@ function event(event, date, time){
     this.event = event;
     this.date = date;
     this.time = time;
+}
+
+Event.prototype.myEvent = function(){
+    return this.event + " " + this.date;
+}
+
+// Users Interface Logic
+
+let todolist = new ToDoList ();
+
+function DisplayEventDetails(ToDoListToDisplay){
+    let eventsList = $(#events);
 }
