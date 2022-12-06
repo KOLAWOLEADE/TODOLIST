@@ -1,8 +1,6 @@
 function ToDoList() {
     this.events{};
     this.currentid = 0;
-    this.date = 0;
-    this.time = 0;
 }
 
 ToDoList.prototype.addEvent= function(event){
@@ -32,4 +30,12 @@ ToDoList.prototype.deleteEvent = function(){
     delete this.events[id]
     return true
 
+}
+
+// Business Logic For Events
+
+function event(event, date, time){
+    this.event = event;
+    this.date = date;
+    this.time = time;
 }
