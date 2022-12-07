@@ -1,5 +1,5 @@
 function ToDoList() {
-    this.events{};
+    this.events = {};
     this.currentid = 0;
 }
 
@@ -49,7 +49,7 @@ Event.prototype.myEvent = function(){
 let todolist = new ToDoList ();
 
 function DisplayEventDetails(ToDoListToDisplay){
-    let eventsList = $(#events);
+    let eventsList = $("#events");
     let htmlForEventInfor = "";
     Object.keys(ToDoListToDisplay.events).forEach (function (key) {
         const event = ToDoListToDisplay.findEvent(key);
@@ -71,3 +71,48 @@ function showEvent(eventid) {
     buttons.append("button class = 'deleteButton' id="+ + event.id + "> Delete </button>");
 
 }
+
+function attachEventListeners() {
+    $("#Event").on("click", "li", function() {
+      showEvent(this.id);
+      
+    });
+
+    // to delete Event
+
+  $("#buttons").on("click", ".deleteButton", function() {
+    todolist.deleteEvent(this.id);
+    $("#show-Event").hide();
+    displayContactDetails(todolist);
+  });
+
+}
+
+
+
+$(document).ready(function() {
+
+    attachEventListeners();
+  
+    $("form#new-contact").submit(function(event) {
+      event.preventDefault();
+      const inputtedEvent= $("input#new-event").val();
+      const inputtedDate = $("input#new-date").val();
+      const inputtedTime = $("input#new-time").val();
+
+
+      // To empty the form or refresh the form
+
+         $("input#new-event").val("");
+         $("input#new-date").val("");
+         $("input#new-time").val("");
+
+
+         let newContact = new Contact(inputtedEvent, inputtedDate, inputtedTime);
+         todolist.addEvent(newEvent);
+         displayEventtDetails(todolist);
+  });
+});
+
+
+
