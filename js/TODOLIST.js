@@ -34,8 +34,8 @@ ToDoList.prototype.deleteEvent = function(){
 
 // Business Logic For Events
 
-function event(event, date, time){
-    this.event = event;
+function event(plan, date, time){
+    this.plan = plan;
     this.date = date;
     this.time = time;
 }
@@ -50,4 +50,24 @@ let todolist = new ToDoList ();
 
 function DisplayEventDetails(ToDoListToDisplay){
     let eventsList = $(#events);
+    let htmlForEventInfor = "";
+    Object.keys(ToDoListToDisplay.events).forEach (function (key) {
+        const event = ToDoListToDisplay.findEvent(key);
+        htmlForEventInfor += "<li id=" + event.id +">" + event.plan + " " + event.date + "</li>";
+    });
+    eventsList.html(htmlForEventInfor);
+}
+
+
+function showEvent(eventid) {
+
+    const event = todolist.findEvent(eventid);
+    $("#show-event").show();
+    $(".Event").html(event.plan);
+    $(".Date").html(event.date);
+    $(".Time").html(event.time);
+    let buttons = $("#buttons");
+    buttons.empty();
+    buttons.append("button class = 'deleteButton' id="+ + event.id + "> Delete </button>");
+
 }
