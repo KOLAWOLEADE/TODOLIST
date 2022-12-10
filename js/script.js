@@ -54,7 +54,7 @@ Plan.prototype.myPlan = function(){
 let todolist = new ToDoList ();
 
 function displayPlanDetails(ToDoListToDisplay){
-    let plansList = $("#plan");
+    let plansList = $("ul#Plan");
     let htmlForPlanInfor = "";
     Object.keys(ToDoListToDisplay.plans).forEach (function (key) {
         const plan = ToDoListToDisplay.findPlan(key);
@@ -71,7 +71,7 @@ function showPlan(planid) {
     $(".Plan").html(plan.task);
     $(".Date").html(plan.date);
     $(".Time").html(plan.time);
-    
+
     // let buttons = $("#buttons");
     // buttons.empty();
     // buttons.append("button class = 'deleteButton' id="+ + plan.id + "> Delete </button>");
