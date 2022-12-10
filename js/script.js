@@ -5,7 +5,7 @@ function ToDoList() {
 
 
 ToDoList.prototype.addPlan= function(plan){
-    plan.id = this.assignId()
+    plan.id = this.assignId();
     this.plans[plan.id] = plan
 }
 
@@ -71,9 +71,10 @@ function showPlan(planid) {
     $(".Plan").html(plan.task);
     $(".Date").html(plan.date);
     $(".Time").html(plan.time);
-    let buttons = $("#buttons");
-    buttons.empty();
-    buttons.append("button class = 'deleteButton' id="+ + plan.id + "> Delete </button>");
+    
+    // let buttons = $("#buttons");
+    // buttons.empty();
+    // buttons.append("button class = 'deleteButton' id="+ + plan.id + "> Delete </button>");
 
 }
 
